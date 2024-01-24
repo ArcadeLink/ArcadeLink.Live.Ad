@@ -1,16 +1,11 @@
 # alls_obs_ad
 
-A new Flutter project.
+用于 ALLS 机台在直播间轮播在线公告的工具
 
-## Getting Started
+## Install
 
-This project is a starting point for a Flutter application.
+这是一个 Flutter 应用，只需要在相应平台编译运行即可
 
-A few resources to get you started if this is your first Flutter project:
+在 OBS 内添加窗口采集源来加入到直播中
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+如需要将本地机厅添加进支持，请开启 Issues
