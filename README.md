@@ -9,3 +9,7 @@
 在 OBS 内添加窗口采集源来加入到直播中
 
 如需要将本地机厅添加进支持，请开启 Issues
+
+## Recorder
+
+另一个相关的工程 [ALLS.UI](https://github.com/Kgym-Hina/ArcadeLinkage.UI)
