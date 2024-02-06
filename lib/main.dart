@@ -15,10 +15,10 @@ Future<void> main() async {
   WindowOptions windowOptions = const WindowOptions(
     size: Size(1040, 260),
     center: true,
+    title: 'ALLS Advertisement',
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.show();
-    await windowManager.focus();
+    await windowManager.minimize();
   });
 }
 
