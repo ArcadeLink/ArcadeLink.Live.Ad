@@ -1,16 +1,42 @@
-# alls_obs_ad
+# ALLS OBS AD
 
-A new Flutter project.
+ALLS OBS AD是一个基于Flutter的公告小程序。它使用了Dart语言和Pub包管理器进行开发。
 
-## Getting Started
+## 项目简介
 
-This project is a starting point for a Flutter application.
+这个项目主要用于在一台直播专用机器上展示公告，并被OBS Studio窗口采集。它可以从服务器获取广告数据，并在指定的设备上被OBS显示
 
-A few resources to get you started if this is your first Flutter project:
+## 安装
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+克隆这个仓库到你的本地机器上
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+git clone https://github.com/Kgym-Hina/alls_obs_ad.git
+```
+
+2. 在项目的根目录下运行以下命令来获取依赖
+
+```bash
+flutter pub get
+```
+
+3. 使用你的IDE运行项目
+
+## 使用方法
+
+在`lib/main.dart`文件中，你可以找到主程序的入口。你可以通过修改这个文件来改变程序的行为。为了让广告能够在特定的设备上显示并被OBS Studio采集，你可能需要对应用的部署和运行环境进行一些特殊的配置。
+
+## 开发者信息
+
+- Kgym-Hina
+
+## 许可证
+
+这个项目使用 AGPL-3.0 许可证。详情请查看[协议](https://www.gnu.org/licenses/agpl-3.0.html).
+
+## 贡献
+
+如果你有任何问题或者建议，欢迎提交issue或者pull request。
+```
+
+请注意，具体的配置步骤可能会根据您的应用的具体需求和OBS Studio的具体使用方式而有所不同。

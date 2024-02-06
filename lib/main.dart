@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
     if(!pref.containsKey("qth") || !pref.containsKey("secret")) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('请先填写机台信息'),
+          content: const Text('请先填写机台信息'),
           action: SnackBarAction(
             label: '填写',
             onPressed: () {
