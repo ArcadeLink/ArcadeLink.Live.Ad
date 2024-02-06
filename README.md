@@ -37,6 +37,3 @@ flutter pub get
 ## 贡献
 
 如果你有任何问题或者建议，欢迎提交issue或者pull request。
-```
-
-请注意，具体的配置步骤可能会根据您的应用的具体需求和OBS Studio的具体使用方式而有所不同。
