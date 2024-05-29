@@ -15,27 +15,11 @@ Future<void> main() async {
   WindowOptions windowOptions = const WindowOptions(
     size: Size(1040, 260),
     center: true,
-    title: 'ALLS Advertisement',
+    title: 'ArcadeLink Advertisement',
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.minimize();
   });
-}
-
-Future<Map<String, dynamic>> fetchData(String qth, String secret) async {
-  final response = await http.get(
-    Uri.parse('https://alls-api.genso-system.ink/ad/all'),
-    headers: <String, String>{
-      'qth': qth,
-      'secret': secret,
-    },
-  );
-
-  if (response.statusCode == 200) {
-    return jsonDecode(response.body);
-  } else {
-    throw Exception('Failed to load data');
-  }
 }
 
 class AdvertisementApp extends StatelessWidget {
@@ -45,12 +29,12 @@ class AdvertisementApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ALLS Advertisement',
+      title: 'ArcadeLink Advertisement',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(title: 'ALLS Advertisement'),
+      home: const HomePage(title: 'ArcadeLink Advertisement'),
     );
   }
 }
@@ -69,14 +53,14 @@ class _HomePageState extends State<HomePage> {
   late PageController _pageController;
   late Timer _timer;
 
-  Future<List<dynamic>>  fetchData(String qth, String secret) async {
+  Future<List<dynamic>> fetchData(String qth, String secret) async {
     final response = await http.get(
-      Uri.parse('https://alls-api.genso-system.ink/ad/all?qth=$qth&secret=$secret'),
+      Uri.parse('https://api.arcade-link.top/announcements'),
     );
 
     if (response.statusCode == 200) {
       debugPrint(response.body);
-      return jsonDecode(response.body);
+      return jsonDecode(response.body)["data"];
     } else {
       throw Exception('Failed to load data');
     }
@@ -122,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         TextField(
                           decoration: const InputDecoration(
-                            labelText: '机厅号',
+                            labelText: '机厅ID',
                           ),
                           onChanged: (value) {
                             pref.setString("qth", value);
@@ -169,10 +153,14 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _data.clear();
       for (var i = 0; i < data.length; i++) {
+        if(data[i]["image"] == null){
+          data[i]["image"] = "";
+        }
+
         _data.add({
           'imageUrl': data[i]['image'],
           'title': data[i]['title'],
-          'details': data[i]['subtitle'],
+          'details': data[i]['content'],
         });
       }
     });
