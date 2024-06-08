@@ -60,7 +60,12 @@ class _HomePageState extends State<HomePage> {
 
     if (response.statusCode == 200) {
       debugPrint(response.body);
-      return jsonDecode(response.body)["data"];
+      var data = jsonDecode(response.body)["data"];
+      
+      // Filter all announcement which id is equal to qth
+      data = data.where((element) => element["location"] == qth.toString() || element["location"] == "0").toList();
+      
+      return data;
     } else {
       throw Exception('Failed to load data');
     }
@@ -160,7 +165,7 @@ class _HomePageState extends State<HomePage> {
         _data.add({
           'imageUrl': data[i]['image'],
           'title': data[i]['title'],
-          'details': data[i]['content'],
+          'content': data[i]['content'],
         });
       }
     });
@@ -184,7 +189,7 @@ class _HomePageState extends State<HomePage> {
             return ImageAndText(
               imageUrl: _data[index]['imageUrl']!,
               title: _data[index]['title']!,
-              details: _data[index]['details']!,
+              details: _data[index]['content']!,
             );
           },
         ),
